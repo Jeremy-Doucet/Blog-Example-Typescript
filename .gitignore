@@ -4,3 +4,5 @@ typings
 *.js
 !*.spec.js
 !*.integration.js
+local.env.*
+!local.env.sample.ts
