@@ -27,7 +27,7 @@ require('./routes').default(app);
 
 // Start server
 function startServer() {
-  app.blogExample = server.listen(3000, '0.0.0.0', function() {
+  app['blogExample'] = server.listen(3000, '0.0.0.0', function() {
     console.log('Express server listening on %d, in %s mode', 3000, app.get('env'));
   });
 }

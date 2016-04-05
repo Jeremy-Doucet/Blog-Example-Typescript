@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "rootDir": "./client",
+    "outDir": ".tmp"
+  },
+  "exclude": [
+    "bower_components/**/*.ts",
+    "typings/main.d.ts",
+    "typings/main/**/*.ts"
+  ],
+  "filesGlob": [
+      "{app,components}/**/!(*.spec).ts",
+      "typings/browser/**/*.d.ts",
+      "typings/browser.d.ts"
+  ],
+  "files": [
+
+  "app/app.constant.ts",
+
+  "app/app.ts",
+
+  "typings/browser.d.ts",
+
+  "typings/browser/ambient/angular-resource/index.d.ts",
+
+  "typings/browser/ambient/angular-ui-bootstrap/index.d.ts",
+
+  "typings/browser/ambient/angular-ui-router/index.d.ts",
+
+  "typings/browser/ambient/angular/index.d.ts",
+
+  "typings/browser/ambient/jquery/index.d.ts"
+
+  ]
+}

@@ -6,3 +6,6 @@ typings
 !*.integration.js
 local.env.*
 !local.env.sample.ts
+!gulpfile.js
+.tmp
+dist

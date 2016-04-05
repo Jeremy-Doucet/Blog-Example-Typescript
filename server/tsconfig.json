@@ -1,0 +1,62 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "rootDir": "./server",
+    "outDir": ".tmp"
+  },
+  "filesGlob": [
+      "server/**/!(*.spec).ts",
+      "server/typings/master/**/*.d.ts",
+      "server/typings/master.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "client/typings/browser",
+    "server/typings/browser",
+    "client/typings/browser.d.ts",
+    "server/typings/browser.d.ts"
+  ],
+  "files": [
+  "app.ts",
+  "auth/auth.service.ts",
+  "auth/facebook/index.ts",
+  "auth/facebook/passport.ts",
+  "auth/google/index.ts",
+  "auth/google/passport.ts",
+  "auth/index.ts",
+  "auth/local/controller.ts",
+  "auth/local/index.ts",
+  "auth/twitter/index.ts",
+  "auth/twitter/passport.ts",
+  "config/environment/development.ts",
+  "config/environment/index.ts",
+  "config/environment/production.ts",
+  "config/environment/shared.ts",
+  "config/environment/test.ts",
+  "config/express.ts",
+  "config/local.env.sample.ts",
+  "config/local.env.ts",
+  "index.ts",
+  "routes.ts",
+  "typings/main.d.ts",
+  "typings/main/ambient/body-parser/index.d.ts",
+  "typings/main/ambient/compression/index.d.ts",
+  "typings/main/ambient/cookie-parser/index.d.ts",
+  "typings/main/ambient/errorhandler/index.d.ts",
+  "typings/main/ambient/express-jwt/index.d.ts",
+  "typings/main/ambient/express-serve-static-core/index.d.ts",
+  "typings/main/ambient/express-session/index.d.ts",
+  "typings/main/ambient/express-unless/index.d.ts",
+  "typings/main/ambient/express/index.d.ts",
+  "typings/main/ambient/jsonwebtoken/index.d.ts",
+  "typings/main/ambient/lodash/index.d.ts",
+  "typings/main/ambient/method-override/index.d.ts",
+  "typings/main/ambient/mime/index.d.ts",
+  "typings/main/ambient/mongoose/index.d.ts",
+  "typings/main/ambient/morgan/index.d.ts",
+  "typings/main/ambient/node/index.d.ts",
+  "typings/main/ambient/passport/index.d.ts",
+  "typings/main/ambient/serve-favicon/index.d.ts",
+  "typings/main/ambient/serve-static/index.d.ts"
+  ]
+}

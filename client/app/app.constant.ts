@@ -1,10 +1,13 @@
-namespace app.Constants {
-  angular.module('app.constants', [])
-    .constant('appConfig', {
-      'userRoles': [
-        'guest',
-        'user',
-        'admin'
-      ]
-    })
-}
+(function(angular, undefined) {
+  angular.module("angulartestApp.constants", [])
+
+.constant("appConfig", {
+	"userRoles": [
+		"guest",
+		"user",
+		"admin"
+	]
+})
+
+;
+})(angular);
