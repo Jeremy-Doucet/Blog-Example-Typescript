@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "rootDir": "./client",
-    "outDir": ".tmp"
+    "rootDir": "./client"
   },
   "exclude": [
     "bower_components/**/*.ts",
@@ -10,27 +9,40 @@
     "typings/main/**/*.ts"
   ],
   "filesGlob": [
-      "{app,components}/**/!(*.spec).ts",
-      "typings/browser/**/*.d.ts",
-      "typings/browser.d.ts"
+    "{app,components}/**/!(*.spec).ts",
+    "typings/browser/**/*.d.ts",
+    "typings/browser.d.ts",
+    "!bower_components/**"
   ],
   "files": [
-
-  "app/app.constant.ts",
-
-  "app/app.ts",
-
-  "typings/browser.d.ts",
-
-  "typings/browser/ambient/angular-resource/index.d.ts",
-
-  "typings/browser/ambient/angular-ui-bootstrap/index.d.ts",
-
-  "typings/browser/ambient/angular-ui-router/index.d.ts",
-
-  "typings/browser/ambient/angular/index.d.ts",
-
-  "typings/browser/ambient/jquery/index.d.ts"
-
-  ]
+    "app/account/account.ts",
+    "app/account/login/login.controller.ts",
+    "app/account/signup/signup.controller.ts",
+    "app/app.constant.ts",
+    "app/app.ts",
+    "app/main/main.controller.ts",
+    "app/main/main.ts",
+    "components/auth/auth.module.ts",
+    "components/auth/auth.service.ts",
+    "components/auth/interceptor.service.ts",
+    "components/auth/router.decorator.ts",
+    "components/auth/user.service.ts",
+    "components/interfaces/ICurrentUser.ts",
+    "components/interfaces/IUser.ts",
+    "components/navbar/navbar.controller.ts",
+    "components/navbar/navbar.directive.ts",
+    "components/util/util.module.ts",
+    "components/util/util.service.ts",
+    "typings/browser.d.ts",
+    "typings/browser/ambient/angular-cookies/index.d.ts",
+    "typings/browser/ambient/angular-resource/index.d.ts",
+    "typings/browser/ambient/angular-ui-bootstrap/index.d.ts",
+    "typings/browser/ambient/angular-ui-router/index.d.ts",
+    "typings/browser/ambient/angular/index.d.ts",
+    "typings/browser/ambient/jquery/index.d.ts",
+    "typings/browser/ambient/lodash/index.d.ts"
+    ],
+  "atom": {
+    "rewriteTsconfig": false
+  }
 }

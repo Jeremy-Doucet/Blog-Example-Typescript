@@ -3,12 +3,12 @@
 import * as path from 'path';
 import * as _ from 'lodash';
 
-function requiredProcessEnv(name) {
-  if (!process.env[name]) {
-    throw new Error('You must set the ' + name + ' environment variable');
-  }
-  return process.env[name];
-}
+// function requiredProcessEnv(name) {
+//   if (!process.env[name]) {
+//     throw new Error('You must set the ' + name + ' environment variable');
+//   }
+//   return process.env[name];
+// }
 
 // All configurations will extend these options
 // ============================================

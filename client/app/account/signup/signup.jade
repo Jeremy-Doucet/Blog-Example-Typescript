@@ -1,0 +1,58 @@
+div.main
+	div.hcenter.container.col-sm-8.col-sm-offset-2.row(style="height: 70px;")
+		a(style="float:left; display: inline-block; line-height: 70px;", ui-sref="Login") Login
+		h2(style="display: inline-block").hcenter.title Register
+
+	form.container.well.col.col-sm-8.col-sm-offset-2(name="SignupForm", ng-submit="vm.register()")
+		div.row
+			div.col.col-sm-6
+				label * Name:
+				input.form-control.my-input(name="name", ng-model="vm.user.name", placeholder="Your Name...", required)
+				div(ng-messages="SignupForm.name.$error", role="alert")
+					div(ng-message="required") This field is required
+			div.col.col-sm-6
+				label * Email:
+				input.form-control.my-input(name="email", type="email", ng-model="vm.user.email", placeholder="example@email.com", required)
+				div(ng-messages="SignupForm.email.$error", role="alert")
+					div(ng-message="required") This field is required
+					div(ng-message="email") Your email is not valid. Please format it like: example@email.com
+		hr
+		div.row
+			div.col.col-sm-6
+				label * Password:
+				input.form-control.my-input(name="password", type="password", ng-model="vm.user.password", placeholder="******", required)
+				div(ng-messages="SignupForm.password.$error", role="alert")
+					div(ng-message="required") This field is required
+			div.col.col-sm-6
+				label * Confirm Password:
+				input.form-control.my-input(name="confirmPassword", type="password", ng-model="vm.user.confirmPassword", placeholder="******", required)
+				div(ng-messages="SignupForm.confirmPassword.$error", role="alert")
+					div(ng-message="required") This field is required
+		hr
+		div.row
+			div.col.col-sm-4
+				label Age: 
+				input.form-control.my-input(name="age", type="number", ng-model="vm.user.age", placeholder="Your Age...", min="13", max="115")
+				div(ng-messages="SignupForm.age.$error", role="alert")
+					div(ng-message="number") Your age must be a number
+					div(ng-message="min") Your age must be able 13 to post blogs
+					div(ng-message="max") You have lived a long time!
+			div.col.col-sm-4
+				label Gender:
+				input.form-control.my-input(ng-model="vm.user.gender", placeholder="Your Gender...")
+			div.col.col-sm-4
+				label Location:
+				input.form-control.my-input(ng-model="vm.user.location", placeholder="Your Location...")
+		hr
+		div.row
+			div.col.col-sm-12
+				label Image Url:
+				input.form-control.my-input(ng-model="vm.user.imageUrl", placeholder="http://www.google.com")
+		hr
+		div.row
+			div.col.col-sm-12
+				label About Me:
+				textarea.form-control(ng-model="vm.user.bio", rows="10", placeholder="Who are you? What are your hobbies? What are your blogs about?")
+		hr
+		div.hcenter
+			button.btn.btn-success(type="submit", ng-disabled="SignupForm.$invalid") Submit

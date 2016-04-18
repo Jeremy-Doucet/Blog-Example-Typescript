@@ -1,22 +1,51 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
-    "rootDir": "./server",
-    "outDir": ".tmp"
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "isolatedModules": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "declaration": false,
+    "noImplicitAny": false,
+    "removeComments": false,
+    "noLib": false,
+    "inlineSourceMap": true,
+    "preserveConstEnums": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "rootDir": "./"
   },
+  "compileOnSave": false,
+  "buildOnSave": false,
   "filesGlob": [
-      "server/**/!(*.spec).ts",
-      "server/typings/master/**/*.d.ts",
-      "server/typings/master.d.ts"
+    "**/*.ts",
+    "typings/main/**/*.d.ts",
+    "typings/main.d.ts",
+    "!**/*.spec.ts",
+    "!typings/browser/**/*.ts",
+    "!typings/browser.d.ts",
+    "!node_modules/**/*.ts",
+    "!client/**/*.ts"
+  ],
+  "excludes": [
+    "node_modules",
+    "bower_components",
+    "typings/browser/**",
+    "typings/browser.d.ts",
+    "client"
   ],
   "exclude": [
     "node_modules",
-    "client/typings/browser",
-    "server/typings/browser",
-    "client/typings/browser.d.ts",
-    "server/typings/browser.d.ts"
+    "bower_components",
+    "typings/browser/**",
+    "typings/browser.d.ts",
+    "client"
   ],
   "files": [
+  "api/User/index.ts",
+  "api/User/IUser.ts",
+  "api/User/user.controller.ts",
+  "api/User/user.model.ts",
   "app.ts",
   "auth/auth.service.ts",
   "auth/facebook/index.ts",
@@ -36,9 +65,11 @@
   "config/express.ts",
   "config/local.env.sample.ts",
   "config/local.env.ts",
+  "config/my_typings/passport-facebook.ts",
   "index.ts",
   "routes.ts",
   "typings/main.d.ts",
+  "typings/main/ambient/bcrypt/index.d.ts",
   "typings/main/ambient/body-parser/index.d.ts",
   "typings/main/ambient/compression/index.d.ts",
   "typings/main/ambient/cookie-parser/index.d.ts",
@@ -58,5 +89,8 @@
   "typings/main/ambient/passport/index.d.ts",
   "typings/main/ambient/serve-favicon/index.d.ts",
   "typings/main/ambient/serve-static/index.d.ts"
-  ]
+  ],
+  "atom": {
+    "rewriteTsconfig": false
+  }
 }

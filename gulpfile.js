@@ -6,7 +6,7 @@ const gulp = require('gulp');
 const path = require('path');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const http = require('http');
-const open = require*'open';
+const open = require('open');
 const lazypipe = require('lazypipe');
 const wiredep = require('wiredep').stream;
 const nodemon = require('nodemon');
@@ -52,7 +52,7 @@ const paths = {
         json: [`${serverPath}/**/*.json`],
         test: {
           integration: [`${serverPath}/**/*.integration.js`, 'mocha.global.js'],
-          unit: [`${serverPath}/**/*.spec.js`, 'mocha.global.js']
+          unit: [`${serverPath}/**/*.spec.js`, 'mocha.global.js', `${serverPath}/**/*.spec.coffee`]
         }
     },
     karma: 'karma.conf.js',
@@ -139,9 +139,11 @@ let styles = lazypipe()
 let mocha = lazypipe()
     .pipe(plugins.mocha, {
         reporter: 'spec',
-        timeout: 5000,
+        timeout: 90,
         require: [
-            './mocha.conf'
+            './mocha.conf',
+            'env-test',
+            'should'
         ]
     });
 
@@ -394,28 +396,44 @@ gulp.task('watch', () => {
 
     plugins.livereload.listen();
 
-    plugins.watch(paths.client.styles, () => {  //['inject:scss']
-        gulp.src(paths.client.mainStyle)
-            .pipe(plugins.plumber())
-            .pipe(styles())
-            .pipe(gulp.dest('.tmp/app'))
-            .pipe(plugins.livereload());
-    });
+    gulp.watch(paths.client.styles, ['styles', 'inject:scss', 'watch:scss']);
 
-    plugins.watch(paths.client.views)
+    gulp.watch(paths.client.views, ['watch:jade'])
+
+    gulp.watch(paths.client.scripts, ['inject:tsconfig:client', 'lint:scripts:client', 'transpile:client', 'watch:scripts:client']);
+
+    gulp.watch(_.union(paths.server.scripts, testFiles), ['inject:tsconfig:server', 'transpile:server', 'watch:scripts:server']);
+
+    gulp.watch('bower.json', ['wiredep:client']);
+});
+
+gulp.task('watch:scripts:client', () => {
+    return gulp.src(paths.client.scripts)
+        .pipe(plugins.plumber())
+        .pipe(plugins.livereload());
+});
+
+gulp.task('watch:scripts:server', () => {
+    return gulp.src(_.union(paths.server.scripts, testFiles))
+        .pipe(plugins.plumber())
+        .pipe(lintServerScripts())
+        .pipe(plugins.livereload());
+})
+
+gulp.task('watch:jade', () => {
+    return gulp.src(paths.client.views)
         .pipe(plugins.jade())
         .pipe(gulp.dest('.tmp'))
         .pipe(plugins.plumber())
         .pipe(plugins.livereload());
+});
 
-    gulp.watch(paths.client.scripts, ['inject:tsconfig', 'lint:scripts:client', 'transpile:client']);
-
-    plugins.watch(_.union(paths.server.scripts, testFiles))
+gulp.task('watch:scss', () => {
+    return gulp.src(paths.client.mainStyle)
         .pipe(plugins.plumber())
-        .pipe(lintServerScripts())
+        .pipe(styles())
+        .pipe(gulp.dest('.tmp/app'))
         .pipe(plugins.livereload());
-
-    gulp.watch('bower.json', ['wiredep:client']);
 });
 
 gulp.task('serve', cb => {
@@ -578,7 +596,7 @@ gulp.task('jade', function() {
 gulp.task('constant', function() {
   let sharedConfig = require(`./${serverPath}/config/environment/shared`);
   return plugins.ngConstant({
-    name: 'angulartestApp.constants',
+    name: 'app.constants',
     deps: [],
     wrap: true,
     stream: true,

@@ -3,9 +3,11 @@
   "dependencies": {},
   "ambientDependencies": {
     "angular": "registry:dt/angular#1.5.0+20160328125810",
+    "angular-cookies": "registry:dt/angular-cookies#1.4.0+20160317120654",
     "angular-resource": "registry:dt/angular-resource#1.5.0+20160316171810",
-    "angular-ui-bootstrap": "registry:dt/angular-ui-bootstrap#0.13.3+20160317120654",
+    "angular-ui-bootstrap": "registry:dt/angular-ui-bootstrap#0.13.3+20160406111533",
     "angular-ui-router": "registry:dt/angular-ui-router#1.1.5+20160317120654",
-    "jquery": "registry:dt/jquery#1.10.0+20160316155526"
+    "jquery": "registry:dt/jquery#1.10.0+20160316155526",
+    "lodash": "registry:dt/lodash#3.10.0+20160330154726"
   }
 }

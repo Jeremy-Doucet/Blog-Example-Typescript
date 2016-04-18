@@ -1,5 +1,5 @@
 (function(angular, undefined) {
-  angular.module("angulartestApp.constants", [])
+  angular.module("app.constants", [])
 
 .constant("appConfig", {
 	"userRoles": [

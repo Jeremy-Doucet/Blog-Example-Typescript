@@ -1,0 +1,19 @@
+div.hcenter.container.col-sm-8.col-sm-offset-2.row(style="height: 70px;")
+	a(style="float:left; display: inline-block; line-height: 70px;", ui-sref="Register") Register
+	h2(style="display: inline-block").title Login
+
+form.container.well.col.col-sm-8.col-sm-offset-2(name="LoginForm", ng-submit="vm.login(LoginForm)")
+	div.row
+		div.col.col-sm-12
+			label * Email:
+			input.form-control.my-input(name="email", type="email", ng-model="vm.user.email")
+	div.row
+		div.col.col-sm-12
+			label * Password:
+			input.form-control.my-input(name="password", type="password", ng-model="vm.user.password")
+	div.hcenter
+		button.btn.btn-success(type="submit") Submit
+br
+div.hcenter.col.col-sm-12
+	h2.title Social Logins
+	a(target="_self", href="/api/v1/users/auth/facebook") #[i.fa.fa-facebook]acebook

@@ -1,0 +1,24 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+@import '../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
+@import '../bower_components/bootstrap-social/bootstrap-social.scss';
+$fa-font-path: "../bower_components/font-awesome/fonts";
+@import '../bower_components/font-awesome/scss/font-awesome';
+@import "../bootswatch/slate.min";
+
+/**
+ * App-wide Styles
+ */
+ .hcenter {
+   text-align: center;
+ }
+
+ title {
+   font-family: cursive;
+}
+
+// Component styles are injected through grunt
+/* inject:scss */
+@import 'account/login/login';
+@import 'account/signup/signup';
+@import 'main/main';
+/* endinject */

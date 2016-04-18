@@ -12,7 +12,7 @@ import * as passport from 'passport';
 import config = require('./environment');
 
 export default function(app) {
-  var env = app.get('env');
+  let env = app.get('env');
 
   app.set('views', config.root + '/server/views');
   app.set('view engine', 'jade');
